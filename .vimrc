@@ -4,7 +4,7 @@ syntax enable
 set number
 
 " support 256 colors
-" set t_Co=256
+set t_Co=256
 
 
 set tabstop=4
@@ -83,6 +83,13 @@ endfunction
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formating selected code
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
@@ -95,4 +102,19 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 call plug#end()
-colorscheme pablo 
+colorscheme evening 
+
+" coc plugin list
+let g:coc_global_extensions = [
+                        \ 'coc-tsserver',
+                        \ 'coc-prettier',
+                        \ 'coc-pairs',
+                        \ 'coc-lists',
+                        \ 'coc-html',
+                        \ 'coc-highlight',
+                        \ 'coc-eslint',
+                        \ 'coc-emmet',
+                        \ 'coc-json',
+                        \ 'coc-css']
+
+
